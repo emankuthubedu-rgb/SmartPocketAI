@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartpocket AI — Your Smart Budget & Recommendation Assistant</title>
+<meta name="description" content="Smartpocket AI turns any budget into a curated, cross-platform shopping plan for home interiors, parties, and jewelry — powered by Gemini 1.5 Flash Pro.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="shortcut icon" href="assets/favicon/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-icon.png" alt="Smartpocket AI logo">
+      <span class="wordmark">Smartpocket<span class="ai">&nbsp;AI</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#features">Planners</a>
+      <a href="#how">How it Works</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#platforms">Platforms</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-ghost">Sign In</a>
+      <a href="register.html" class="btn btn-primary">Create Account</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="fade-up">
+      <div class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m5.6 5.6 2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg> Gen AI powered budget &amp; recommendation assistant</div>
+      <h1>Budget smarter for <span>home, parties</span> &amp; <span>jewelry</span> — instantly.</h1>
+      <p class="lead">Managing budgets across home decor, event planning, or jewelry shopping is overwhelming due to endless products, platforms, and price ranges. Smartpocket AI is a GenAI-powered, cross-platform recommendation system — built on Gemini 1.5 Flash Pro and FastAPI — that delivers personalized, budget-based suggestions from Amazon, Flipkart, IKEA, Swiggy, Zomato, OYO, Tanishq and more.</p>
+      <div class="hero-cta">
+        <a href="register.html" class="btn btn-primary">Create Your Account <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="login.html" class="btn btn-on-dark">Sign In</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>3</strong><span>Smart Planners</span></div>
+        <div><strong>15+</strong><span>Partner Platforms</span></div>
+        <div><strong>100%</strong><span>Budget-Aware AI</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="float-card" style="top:20px;right:-18px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg> Home plan ready</div>
+      <div class="float-card" style="bottom:56px;left:-18px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/></svg> AI match found</div>
+
+      <!-- Coded product mockup (not an AI-generated screenshot) -->
+      <div class="mockup">
+        <div class="mockup-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="url">app.smartpocket.ai/dashboard</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-greet">Welcome back EK,</div>
+          <div class="mockup-sub">Here's your budget planning snapshot</div>
+          <div class="mockup-stats">
+            <div class="mockup-stat"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 11h6M9 15h6"/></svg><strong>7</strong><span>Plans</span></div>
+            <div class="mockup-stat"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v2"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-4"/></svg><strong>₹4.2L</strong><span>Planned</span></div>
+            <div class="mockup-stat"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5l-5.3-5 7.2-.9L12 2Z"/></svg><strong>Home</strong><span>Top planner</span></div>
+          </div>
+          <div class="mockup-row">
+            <div class="swatch" style="background:linear-gradient(135deg,var(--blue),var(--indigo));"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 15h20v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3Z"/></svg></div>
+            <div class="info"><strong>Living room furniture</strong><span>4 items · IKEA, Amazon</span></div>
+            <div class="amt">₹66,000</div>
+          </div>
+          <div class="mockup-row">
+            <div class="swatch" style="background:linear-gradient(135deg,var(--purple),#ec4899);"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/></svg></div>
+            <div class="info"><strong>Anniversary jewelry set</strong><span>3 items · Tanishq, CaratLane</span></div>
+            <div class="amt">₹36,800</div>
+          </div>
+          <div class="mockup-bar-chart">
+            <div class="b" style="height:40%"></div><div class="b" style="height:65%"></div><div class="b" style="height:50%"></div>
+            <div class="b" style="height:85%"></div><div class="b" style="height:60%"></div><div class="b" style="height:95%"></div><div class="b" style="height:70%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES / PLANNERS ============ -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 13h8V3H3v10Zm10 8h8V11h-8v10ZM3 21h8v-6H3v6ZM13 3v6h8V3h-8Z"/></svg> What You Can Plan</div>
+      <h2>One assistant, three budget-smart planners</h2>
+      <p>Each planner is powered by its own Gemini 1.5 Flash Pro prompt — from room dimensions to guest counts to outfit-photo color analysis.</p>
+    </div>
+    <div class="card-grid3">
+      <div class="planner-card home fade-up">
+        <div class="thumb"><img src="assets/home-interior.jpg" alt="Home interior planning"><div class="badge-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 15h20v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3Z"/><path d="M6 15V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v7"/></svg></div></div>
+        <div class="body">
+          <h3>Home Interior Planner</h3>
+          <p>Plan your interior design budget efficiently with AI-powered recommendations for furniture, lighting, and more.</p>
+          <a href="register.html" class="card-link">Get Started <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="planner-card party fade-up">
+        <div class="thumb"><img src="assets/party.jpg" alt="Party planning"><div class="badge-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-2.5 6.5-4 8l-1 5-1-5c-1.5-1.5-4-4.5-4-8a5 5 0 0 1 5-5Z"/><path d="M12 15v1"/><path d="M17.5 9.5 15 7l1.5-1.5L19 8l-1.5 1.5Z"/></svg></div></div>
+        <div class="body">
+          <h3>Party Budget Planner</h3>
+          <p>Plan your perfect event with budget allocations for venue, catering, decorations, and entertainment.</p>
+          <a href="register.html" class="card-link">Get Started <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="planner-card jewelry fade-up">
+        <div class="thumb"><img src="assets/jewelry.jpg" alt="Jewelry recommendations"><div class="badge-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg></div></div>
+        <div class="body">
+          <h3>Jewelry Planner</h3>
+          <p>Find the ideal jewelry pieces for any occasion that match your outfit and stay within your budget.</p>
+          <a href="register.html" class="card-link">Get Started <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section bg-dark" id="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></svg> Project Workflow</div>
+      <h2>How Smartpocket AI works</h2>
+      <p>User → Frontend (user information) → Backend (receives &amp; processes) → Gemini AI (generates recommendation) → Recommendation logic → Frontend (result) → Output.</p>
+    </div>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="num">01</div>
+        <h4>Gemini AI Initialization</h4>
+        <p>Google Cloud + Gemini 1.5 Flash Pro API access is configured, with prompts fine-tuned for budget interpretation and multimodal (text + image) understanding.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="num">02</div>
+        <h4>Core Functionality Development</h4>
+        <p>A modular backend accepts budgets and optional images, then routes them to Home, Party, or Jewelry planning logic in <code>gemini_utils.py</code>.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="num">03</div>
+        <h4>FastAPI Backend Integration</h4>
+        <p>FastAPI bridges the frontend and Gemini AI layer with routes like <code>/generate-home</code>, <code>/generate-party</code>, and <code>/generate-jewelry</code>, plus JWT-secured auth.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="num">04</div>
+        <h4>UI Development &amp; Testing</h4>
+        <p>A responsive Jinja2/HTML/CSS/JS frontend renders structured recommendations, tested end-to-end across real-world budgets and scenarios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE / TECH STACK ============ -->
+<section class="section" id="architecture">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6"/></svg> Architecture Overview</div>
+      <h2>Core technologies under the hood</h2>
+      <p>Smartpocket AI is an intelligent, modular platform that integrates a lightweight FastAPI backend with Google's Gemini 1.5 Flash Pro to process text, numbers, and images.</p>
+    </div>
+    <div class="tech-grid" style="margin-bottom:28px;">
+      <div class="tech-card">
+        <div class="icon-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m5.6 5.6 2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg></div>
+        <h4>Gemini 1.5 Flash Pro</h4><p>Multimodal AI model for understanding budget context, analyzing outfit images, and generating structured JSON recommendations.</p>
+      </div>
+      <div class="tech-card">
+        <div class="icon-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+        <h4>FastAPI Backend</h4><p>Manages routing, JWT-based sessions, and communication between the UI and the Gemini AI layer.</p>
+      </div>
+      <div class="tech-card">
+        <div class="icon-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 15 15 9"/><path d="M14 6.5 15.5 5a3.5 3.5 0 0 1 5 5l-1.5 1.5"/><path d="M10 17.5 8.5 19a3.5 3.5 0 0 1-5-5l1.5-1.5"/></svg></div>
+        <h4>Third-Party Platform APIs</h4><p>Sources product &amp; service data from Amazon, Flipkart, IKEA, Swiggy, Zomato, OYO, Tanishq &amp; more.</p>
+      </div>
+      <div class="tech-card">
+        <div class="icon-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+        <h4>HTML/CSS/JS Frontend</h4><p>Jinja2-templated, responsive interface for input collection and AI-driven output display.</p>
+      </div>
+    </div>
+    <div class="section-card">
+      <div class="head"><h2>Backend Routes (FastAPI)</h2></div>
+      <div>
+        <span class="route-chip">/generate-home</span><span class="route-chip">/generate-party</span><span class="route-chip">/generate-jewelry</span>
+        <span class="route-chip">/register</span><span class="route-chip">/login</span><span class="route-chip">/logout</span><span class="route-chip">/token</span>
+        <span class="route-chip">/session-info</span><span class="route-chip">/session-data</span><span class="route-chip">/recommendations-details</span>
+        <span class="route-chip">/history</span><span class="route-chip">/startup</span>
+      </div>
+      <p style="margin-top:16px;font-size:0.85rem;color:var(--ink-500);">This front-end demo mirrors those routes using local, in-browser session storage — so you can explore the full experience without a live backend deployment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLATFORMS ============ -->
+<section class="section section-tight bg-soft" id="platforms">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 15 15 9"/><path d="M14 6.5 15.5 5a3.5 3.5 0 0 1 5 5l-1.5 1.5"/><path d="M10 17.5 8.5 19a3.5 3.5 0 0 1-5-5l1.5-1.5"/></svg> Sourced From</div>
+      <h2>Recommendations across platforms you already trust</h2>
+    </div>
+    <div class="platform-strip">
+      <span class="platform-chip">Amazon</span>
+      <span class="platform-chip">Flipkart</span>
+      <span class="platform-chip">IKEA</span>
+      <span class="platform-chip">Myntra</span>
+      <span class="platform-chip">Ajio</span>
+      <span class="platform-chip">Meesho</span>
+      <span class="platform-chip">Swiggy</span>
+      <span class="platform-chip">Zomato</span>
+      <span class="platform-chip">BigBasket</span>
+      <span class="platform-chip">OYO Rooms</span>
+      <span class="platform-chip">MakeMyTrip</span>
+      <span class="platform-chip">Booking.com</span>
+      <span class="platform-chip">NoBroker</span>
+      <span class="platform-chip">BookMyShow</span>
+      <span class="platform-chip">Tanishq</span>
+      <span class="platform-chip">CaratLane</span>
+      <span class="platform-chip">BlueStone</span>
+      <span class="platform-chip">Melorra</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAMPLE BREAKDOWN ============ -->
+<section class="section">
+  <div class="container sample-grid">
+    <div>
+      <div class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m12 2 3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5l-5.3-5 7.2-.9L12 2Z"/></svg> Why Smartpocket AI</div>
+      <h2 style="font-size:2rem;margin:14px 0 18px;">AI-powered budget planning tools to help you make smarter financial decisions every day</h2>
+      <p style="color:var(--ink-500);margin-bottom:16px;">Smartpocket AI redefines how individuals plan budgets for everyday lifestyle needs — home interiors, party planning, and jewelry selection — by combining FastAPI with Gemini 1.5 Flash Pro to intelligently process budgets, preferences, and images.</p>
+      <p style="color:var(--ink-500);margin-bottom:28px;">Each module, from registration to recommendations, is designed to simplify decision-making and enhance the shopping or planning experience through automation and personalization.</p>
+      <a href="register.html" class="btn btn-primary">Create Your Account <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="section-card" style="margin:0;">
+      <div class="head"><h2>Sample Budget Plan</h2><span class="badge badge-home">Home · ₹5,000</span></div>
+      <p style="font-size:0.85rem;color:var(--ink-500);margin-bottom:14px;">Total Budget: ₹5,000.00 &nbsp;·&nbsp; Remaining Budget: ₹500.00</p>
+      <div class="category-block" style="border:none;">
+        <div style="padding:0 4px;">
+          <div class="item-row"><div class="info"><h5>LED Bulb (Warm White)</h5><p>Energy-efficient LED bulbs · Qty 5</p></div><div class="price"><strong>₹100</strong><span>Lighting · ₹1,500 alloc.</span></div></div>
+          <div class="item-row"><div class="info"><h5>Havells Ceiling Fan</h5><p>Basic, functional ceiling fan · Qty 4</p></div><div class="price"><strong>₹500</strong><span>Fans · ₹2,000 alloc.</span></div></div>
+          <div class="item-row"><div class="info"><h5>Plastic Chair</h5><p>Stackable chairs · Qty 2</p></div><div class="price"><strong>₹250</strong><span>Furniture · ₹1,000 alloc.</span></div></div>
+          <div class="item-row"><div class="info"><h5>Small Wooden Table</h5><p>Simple dining table · Qty 1</p></div><div class="price"><strong>₹500</strong><span></span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand"><img src="assets/logo-icon.png" alt="Smartpocket AI logo"><span class="wordmark">Smartpocket<span class="ai">&nbsp;AI</span></span></div>
+        <p style="max-width:280px;font-size:0.86rem;margin-top:10px;">AI-powered budget planning tools to help you make smarter financial decisions every day.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul><li><a href="register.html">Home Planner</a></li><li><a href="register.html">Party Planner</a></li><li><a href="register.html">Jewelry Planner</a></li><li><a href="#">Pricing</a></li></ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul><li><a href="#">About Us</a></li><li><a href="#">Our Team</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact Us</a></li></ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul><li><a href="#">Blog</a></li><li><a href="#">Guides</a></li><li><a href="#">FAQ</a></li><li><a href="#">Support</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Smartpocket AI. All rights reserved.</span>
+      <span>Legal: Privacy Policy · Terms of Service · Cookies Policy</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+  PS.initNavToggle();
+</script>
+</body>
+</html>

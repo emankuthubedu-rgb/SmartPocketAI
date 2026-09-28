@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Interior Budget Planner — Smartpocket AI</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="shortcut icon" href="assets/favicon/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand on-dark"><img src="assets/logo-icon.png" alt="Smartpocket AI logo"><span class="wordmark">Smartpocket<span class="ai">&nbsp;AI</span></span></div>
+    <a class="side-link" href="dashboard.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 13h8V3H3v10Zm10 8h8V11h-8v10ZM3 21h8v-6H3v6ZM13 3v6h8V3h-8Z"/></svg> Dashboard</a>
+    <a class="side-link active" href="home-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 15h20v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3Z"/><path d="M6 15V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v7"/></svg> Home Planner</a>
+    <a class="side-link" href="party-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-2.5 6.5-4 8l-1 5-1-5c-1.5-1.5-4-4.5-4-8a5 5 0 0 1 5-5Z"/><path d="M12 15v1"/></svg> Party Planner</a>
+    <a class="side-link" href="jewelry-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg> Jewelry Planner</a>
+    <div class="side-divider"></div>
+    <a class="side-link" href="history.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 3"/></svg> History</a>
+    <a class="side-link" href="#" id="logoutLink"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg> Logout</a>
+    <div class="side-footer">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m5.6 5.6 2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+      <span>Tip: Add all the rooms you're furnishing for a more balanced AI budget split.</span>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <div class="topbar">
+      <div><h1>Home Interior Budget Planner</h1><div class="sub">Create a customized budget plan for your dream home interior</div></div>
+      <button class="hamburger" id="hamburger"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+
+    <div class="page-pad">
+      <div class="section-card">
+        <div class="head"><h2>Budget Details</h2></div>
+        <form id="homeForm">
+          <div class="form-grid">
+            <div class="field full">
+              <label for="budget">Total Budget (₹)</label>
+              <input type="number" id="budget" min="500" placeholder="e.g. 150000" required>
+            </div>
+          </div>
+
+          <label style="font-weight:700;font-size:0.88rem;display:block;margin:20px 0 12px;">Fixtures &amp; Furniture</label>
+          <div class="form-grid">
+            <div class="field">
+              <label for="lights">Number of Lights/Fixtures</label>
+              <input type="number" id="lights" min="0" value="4">
+            </div>
+            <div class="field">
+              <label for="fans">Number of Ceiling Fans</label>
+              <input type="number" id="fans" min="0" value="4">
+            </div>
+            <div class="field">
+              <label for="furniture">Number of Furniture Pieces</label>
+              <input type="number" id="furniture" min="0" value="3">
+            </div>
+            <div class="field">
+              <label for="diningTables">Number of Dining Tables</label>
+              <input type="number" id="diningTables" min="0" value="1">
+            </div>
+          </div>
+
+          <label style="font-weight:700;font-size:0.88rem;display:block;margin:20px 0 12px;">Rooms to Include</label>
+          <div class="room-grid">
+            <div class="room-item"><label><input type="checkbox" id="hasLiving" checked> Living Room</label></div>
+            <div class="room-item"><label><input type="checkbox" id="hasKitchen"> Kitchen</label></div>
+            <div class="room-item"><label><input type="checkbox" id="hasBedroom" checked> Bedroom</label></div>
+          </div>
+
+          <label style="font-weight:700;font-size:0.88rem;display:block;margin:22px 0 12px;">Additional Information</label>
+          <div class="field full">
+            <label for="additional">Special Requirements or Preferences</label>
+            <textarea id="additional" rows="3" placeholder="Any specific requirements or preferences...."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top:8px;">Generate Recommendations</button>
+        </form>
+      </div>
+
+      <div class="results-wrap hidden" id="results"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/recommend.js"></script>
+<script>
+  PS.requireAuth();
+  PS.markActiveNav();
+  PS.initSidebarToggle();
+  document.getElementById("logoutLink").addEventListener("click", (e) => { e.preventDefault(); PS.logout(); });
+
+  // Reuse a past plan's inputs if navigated here from History
+  (function prefillFromReuse() {
+    const reuse = PS.popReuse();
+    if (!reuse || reuse.type !== "home") return;
+    const i = reuse.input;
+    document.getElementById("budget").value = i.totalBudget;
+    document.getElementById("lights").value = i.lights;
+    document.getElementById("fans").value = i.fans;
+    document.getElementById("furniture").value = i.furniture;
+    document.getElementById("diningTables").value = i.diningTables;
+    document.getElementById("hasLiving").checked = !!i.rooms.living;
+    document.getElementById("hasKitchen").checked = !!i.rooms.kitchen;
+    document.getElementById("hasBedroom").checked = !!i.rooms.bedroom;
+    document.getElementById("additional").value = i.additional || "";
+    PS.toast("Previous plan loaded — adjust and regenerate anytime.");
+  })();
+
+  document.getElementById("homeForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const budget = parseFloat(document.getElementById("budget").value);
+    if (!budget || budget < 500) { PS.toast("Please enter a valid budget (minimum ₹500).", "error"); return; }
+
+    const input = {
+      totalBudget: budget,
+      rooms: {
+        living: document.getElementById("hasLiving").checked,
+        kitchen: document.getElementById("hasKitchen").checked,
+        bedroom: document.getElementById("hasBedroom").checked
+      },
+      lights: parseInt(document.getElementById("lights").value) || 0,
+      fans: parseInt(document.getElementById("fans").value) || 0,
+      furniture: parseInt(document.getElementById("furniture").value) || 0,
+      diningTables: parseInt(document.getElementById("diningTables").value) || 0,
+      additional: document.getElementById("additional").value.trim()
+    };
+
+    const btn = e.target.querySelector('[type="submit"]');
+    const btnText = btn ? btn.innerHTML : "";
+    if (btn) { btn.disabled = true; btn.textContent = "Generating…"; }
+    let result;
+    try {
+      result = await PSRecommend.generateHomeRecommendations(input);
+    } catch (error) {
+      PS.toast(error.message, "error");
+      if (btn) { btn.disabled = false; btn.innerHTML = btnText; }
+      return;
+    }
+    renderResults(result);
+    try {
+      await PS.saveHistory({ type: "home", title: `Home Budget Plan · ₹${budget.toLocaleString("en-IN")}`, input, result });
+      PS.toast("Recommendations generated and saved to your history!", "success");
+    } catch (error) {
+      PS.toast("Plan generated, but saving to history failed: " + error.message, "error");
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = btnText; }
+    }
+  });
+
+  function renderResults(result) {
+    const wrap = document.getElementById("results");
+    wrap.classList.remove("hidden");
+    const pct = Math.min(100, Math.round((result.spent / result.total_budget) * 100));
+
+    let html = `
+      <div class="section-card">
+        <div class="head"><h2>Your Personalized Budget Plan</h2></div>
+        <div class="budget-summary">
+          <div class="item"><strong>${PS.fmtINR(result.total_budget)}</strong><span>Total Budget</span></div>
+          <div class="item"><strong>${PS.fmtINR(result.spent)}</strong><span>Allocated</span></div>
+          <div class="item"><strong>${PS.fmtINR(result.remaining_budget)}</strong><span>Remaining Budget</span></div>
+          <div class="item" style="min-width:200px;"><span>Budget Used</span><div class="progress-bar"><span style="width:${pct}%"></span></div></div>
+        </div>
+    `;
+
+    result.budget_breakdown.forEach((cat) => {
+      html += `
+        <div class="category-block">
+          <div class="category-head" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('hidden')">
+            <div class="left"><div class="tag">${Icon(cat.icon, "ic")}</div><h4>${cat.label}</h4></div>
+            <div class="pct">Allocation: ${PS.fmtINR(cat.allocation)}<small>${PS.fmtINR(cat.total_cost)} used · ${cat.percentage_of_budget}%</small>${Icon("chevronDown","chev")}</div>
+          </div>
+          <div class="category-items">
+            ${cat.items.map(it => `
+              <div class="item-row">
+                <div class="info">
+                  <h5>${it.name}</h5>
+                  <p>${it.description}</p>
+                  <div class="links">${it.shopping_links.map(l => `<a class="link-chip" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join("")}</div>
+                </div>
+                <div class="price"><strong>${PS.fmtINR(it.estimated_price)}</strong><span>Qty ${it.quantity}</span></div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    });
+
+    html += `
+        <div class="suggestion-banner">${Icon("sparkle")} <div>${result.additional_suggestions.join(" ")}</div></div>
+      </div>
+    `;
+    wrap.innerHTML = html;
+    wrap.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+</script>
+</body>
+</html>

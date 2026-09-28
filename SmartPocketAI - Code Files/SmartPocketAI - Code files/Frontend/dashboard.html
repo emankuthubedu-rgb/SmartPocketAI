@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Smartpocket AI</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="shortcut icon" href="assets/favicon/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand on-dark"><img src="assets/logo-icon.png" alt="Smartpocket AI logo"><span class="wordmark">Smartpocket<span class="ai">&nbsp;AI</span></span></div>
+    <a class="side-link active" href="dashboard.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 13h8V3H3v10Zm10 8h8V11h-8v10ZM3 21h8v-6H3v6ZM13 3v6h8V3h-8Z"/></svg> Dashboard</a>
+    <a class="side-link" href="home-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 15h20v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3Z"/><path d="M6 15V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v7"/></svg> Home Planner</a>
+    <a class="side-link" href="party-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-2.5 6.5-4 8l-1 5-1-5c-1.5-1.5-4-4.5-4-8a5 5 0 0 1 5-5Z"/><path d="M12 15v1"/></svg> Party Planner</a>
+    <a class="side-link" href="jewelry-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg> Jewelry Planner</a>
+    <div class="side-divider"></div>
+    <a class="side-link" href="history.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 3"/></svg> History</a>
+    <a class="side-link" href="#" id="logoutLink"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg> Logout</a>
+    <div class="side-footer">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5l-5.3-5 7.2-.9L12 2Z"/></svg>
+      <span>Good choices, brighter tomorrows. Every plan you make here stays within budget — guaranteed.</span>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main-area">
+    <div class="topbar">
+      <div>
+        <h1>Welcome, <span data-user-username></span>!</h1>
+        <div class="sub">Choose a budget planner to get started with your personalized financial planning experience</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <button class="hamburger" id="hamburger"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="side-avatar" data-user-initials></div>
+      </div>
+    </div>
+
+    <div class="page-pad">
+
+      <div class="session-info-bar" id="sessionInfoBar"></div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="icon" style="background:linear-gradient(135deg,var(--blue),var(--indigo));"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 11h6M9 15h6"/></svg></div>
+          <h3 id="statTotal">0</h3>
+          <span>Total Plans Created</span>
+        </div>
+        <div class="stat-card">
+          <div class="icon" style="background:linear-gradient(135deg,var(--purple),#ec4899);"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v2"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-4"/><path d="M17 12h3a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-3a2 2 0 0 1 0-4Z"/></svg></div>
+          <h3 id="statBudget">₹0</h3>
+          <span>Total Budget Planned</span>
+        </div>
+        <div class="stat-card">
+          <div class="icon" style="background:linear-gradient(135deg,var(--cyan),var(--blue));"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3 id="statSaved">₹0</h3>
+          <span>Estimated Remaining / Saved</span>
+        </div>
+        <div class="stat-card">
+          <div class="icon" style="background:linear-gradient(135deg,#f59e0b,#f97316);"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5l-5.3-5 7.2-.9L12 2Z"/></svg></div>
+          <h3 id="statFav">—</h3>
+          <span>Most Used Planner</span>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="head"><h2>Choose a Budget Planner</h2></div>
+        <div class="card-grid3">
+          <div class="planner-card home">
+            <div class="thumb"><img src="assets/home-interior.jpg" alt="Home"><div class="badge-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 15h20v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3Z"/></svg></div></div>
+            <div class="body"><h3>Home Budget Planner</h3><p>Plan your interior design budget efficiently with AI-powered recommendations for furniture, lighting, and more.</p><a href="home-planner.html" class="card-link">Get Started <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+          <div class="planner-card party">
+            <div class="thumb"><img src="assets/party.jpg" alt="Party"><div class="badge-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-2.5 6.5-4 8l-1 5-1-5c-1.5-1.5-4-4.5-4-8a5 5 0 0 1 5-5Z"/><path d="M12 15v1"/></svg></div></div>
+            <div class="body"><h3>Party Budget Planner</h3><p>Plan your perfect event with budget allocations for venue, catering, decorations, and entertainment.</p><a href="party-planner.html" class="card-link">Get Started <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+          <div class="planner-card jewelry">
+            <div class="thumb"><img src="assets/jewelry.jpg" alt="Jewelry"><div class="badge-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/></svg></div></div>
+            <div class="body"><h3>Jewelry Budget Planner</h3><p>Find the ideal jewelry pieces for any occasion that match your outfit and stay within your budget.</p><a href="jewelry-planner.html" class="card-link">Get Started <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="head">
+          <h2>Recent Activity</h2>
+          <a href="history.html" class="btn btn-outline btn-sm">View Full History <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div id="recentList"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/icons.js"></script>
+<script>
+  PS.requireAuth();
+  PS.renderUserWidgets();
+  PS.markActiveNav();
+  PS.initSidebarToggle();
+
+  document.getElementById("logoutLink").addEventListener("click", (e) => { e.preventDefault(); PS.logout(); });
+
+  // session info from the API
+  async function loadDashboard() {
+  try {
+  const si = await PS.getSessionInfo();
+  if (si) {
+    document.getElementById("sessionInfoBar").innerHTML = `
+      <span>${Icon("lock")} Session for <strong>${si.username}</strong></span>
+      <span>${Icon("history")} Logged in at <strong>${si.login_time.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}</strong></span>
+      <span>${Icon("target")} Session duration: <strong>${si.session_duration_minutes} min</strong></span>
+    `;
+  }
+
+  const GRADS = { home: "linear-gradient(135deg,var(--blue),var(--indigo))", party: "linear-gradient(135deg,var(--purple),#ec4899)", jewelry: "linear-gradient(135deg,var(--cyan),var(--blue))" };
+  const TYPE_ICON = { home: "sofa", party: "party", jewelry: "gem" };
+  const TYPE_LABEL = { home: "Home Budget Plan", party: "Party Budget Plan", jewelry: "Jewelry Budget Plan" };
+
+  const history = await PS.getHistory();
+  document.getElementById("statTotal").textContent = history.length;
+  const totalBudget = history.reduce((s, h) => s + (h.result.total_budget || 0), 0);
+  const totalRemaining = history.reduce((s, h) => s + (h.result.remaining_budget || 0), 0);
+  document.getElementById("statBudget").textContent = PS.fmtINR(totalBudget);
+  document.getElementById("statSaved").textContent = PS.fmtINR(totalRemaining);
+
+  if (history.length) {
+    const counts = {};
+    history.forEach(h => counts[h.type] = (counts[h.type] || 0) + 1);
+    const fav = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+    document.getElementById("statFav").textContent = fav.charAt(0).toUpperCase() + fav.slice(1);
+  }
+
+  function activityContext(h) {
+    if (h.type === "party") return ` for ${h.input.guests} guests`;
+    if (h.type === "jewelry") return ` for ${h.input.occasion}`;
+    return "";
+  }
+
+  const recentList = document.getElementById("recentList");
+  if (!history.length) {
+    recentList.innerHTML = `<div class="empty-state">${Icon("clipboard", "ic", 38)}<p>No plans yet — choose a planner above to see your AI recommendations here.</p></div>`;
+  } else {
+    recentList.innerHTML = history.slice(0, 5).map(h => `
+      <div class="history-item">
+        <div class="history-icon" style="background:${GRADS[h.type]}">${Icon(TYPE_ICON[h.type])}</div>
+        <div class="history-body">
+          <h4>${TYPE_LABEL[h.type]}</h4>
+          <span>Budget: ${PS.fmtINR(h.result.total_budget)}${activityContext(h)} — Created on ${PS.fmtDate(h.createdAt)}</span>
+        </div>
+        <span class="badge badge-${h.type}">${h.type}</span>
+      </div>
+    `).join("");
+  }
+  } catch (error) {
+    PS.toast(error.message, "error");
+  }
+  }
+  loadDashboard();
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recommendation History — Smartpocket AI</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="shortcut icon" href="assets/favicon/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand on-dark"><img src="assets/logo-icon.png" alt="Smartpocket AI logo"><span class="wordmark">Smartpocket<span class="ai">&nbsp;AI</span></span></div>
+    <a class="side-link" href="dashboard.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 13h8V3H3v10Zm10 8h8V11h-8v10ZM3 21h8v-6H3v6ZM13 3v6h8V3h-8Z"/></svg> Dashboard</a>
+    <a class="side-link" href="home-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 15h20v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3Z"/><path d="M6 15V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v7"/></svg> Home Planner</a>
+    <a class="side-link" href="party-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-2.5 6.5-4 8l-1 5-1-5c-1.5-1.5-4-4.5-4-8a5 5 0 0 1 5-5Z"/><path d="M12 15v1"/></svg> Party Planner</a>
+    <a class="side-link" href="jewelry-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg> Jewelry Planner</a>
+    <div class="side-divider"></div>
+    <a class="side-link active" href="history.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 3"/></svg> History</a>
+    <a class="side-link" href="#" id="logoutLink"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg> Logout</a>
+    <div class="side-footer">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 3"/></svg>
+      <span>A log of your past recommendation queries and results — review or reuse anytime.</span>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <div class="topbar">
+      <div><h1>Recommendation History</h1><div class="sub">Review, reuse, or clear your past AI recommendations</div></div>
+      <button class="hamburger" id="hamburger"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+
+    <div class="page-pad">
+      <div class="section-card">
+        <div class="head">
+          <h2 id="countLabel">All Plans</h2>
+          <div style="display:flex;gap:10px;">
+            <select id="filterType" style="padding:9px 14px;border:1.5px solid var(--border);border-radius:10px;background:var(--surface-50);">
+              <option value="all">All Types</option>
+              <option value="home">Home Budget</option>
+              <option value="party">Party Budget</option>
+              <option value="jewelry">Jewelry Budget</option>
+            </select>
+            <button class="btn btn-danger btn-sm" id="clearAllBtn">Clear All</button>
+          </div>
+        </div>
+        <div id="historyList"></div>
+      </div>
+
+      <div class="section-card hidden" id="detailCard">
+        <div class="head"><h2 id="detailTitle">Plan Details</h2><button class="btn btn-outline btn-sm" id="closeDetail">Close</button></div>
+        <div id="detailBody"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/icons.js"></script>
+<script>
+  PS.requireAuth();
+  PS.markActiveNav();
+  PS.initSidebarToggle();
+  document.getElementById("logoutLink").addEventListener("click", (e) => { e.preventDefault(); PS.logout(); });
+
+  const GRADS = { home: "linear-gradient(135deg,var(--blue),var(--indigo))", party: "linear-gradient(135deg,var(--purple),#ec4899)", jewelry: "linear-gradient(135deg,var(--cyan),var(--blue))" };
+  const TYPE_ICON = { home: "sofa", party: "party", jewelry: "gem" };
+  const TYPE_LABEL = { home: "Home Budget Plan", party: "Party Budget Plan", jewelry: "Jewelry Budget Plan" };
+  const PLANNER_PAGE = { home: "home-planner.html", party: "party-planner.html", jewelry: "jewelry-planner.html" };
+
+  let history = [];
+  const listEl = document.getElementById("historyList");
+  const countLabel = document.getElementById("countLabel");
+  const filterSel = document.getElementById("filterType");
+
+  function activityContext(h) {
+    if (h.type === "party") return ` for ${h.input.guests} guests`;
+    if (h.type === "jewelry") return ` for ${h.input.occasion}`;
+    return "";
+  }
+
+  function render() {
+    const filter = filterSel.value;
+    const filtered = filter === "all" ? history : history.filter(h => h.type === filter);
+    countLabel.textContent = `${filtered.length} Plan${filtered.length !== 1 ? "s" : ""}`;
+
+    if (!filtered.length) {
+      listEl.innerHTML = `<div class="empty-state">${Icon("clipboard","ic",38)}<p>No plans found. Head to a planner to create your first AI recommendation.</p></div>`;
+      return;
+    }
+    listEl.innerHTML = filtered.map(h => `
+      <div class="history-item">
+        <div class="history-icon" style="background:${GRADS[h.type]}">${Icon(TYPE_ICON[h.type])}</div>
+        <div class="history-body">
+          <h4>${TYPE_LABEL[h.type]}</h4>
+          <span>Budget: ${PS.fmtINR(h.result.total_budget)}${activityContext(h)} — Created on ${PS.fmtDate(h.createdAt)}</span>
+        </div>
+        <span class="badge badge-${h.type}">${h.type}</span>
+        <div class="history-actions">
+          <button class="btn btn-outline btn-sm" onclick="viewDetail('${h.id}')">View</button>
+          <button class="btn btn-primary btn-sm" onclick="reuseItem('${h.id}')">Reuse</button>
+          <button class="btn btn-danger btn-sm" onclick="removeItem('${h.id}')">Delete</button>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function viewDetail(id) {
+    const h = history.find(x => String(x.id) === String(id));
+    if (!h) return;
+    document.getElementById("detailCard").classList.remove("hidden");
+    document.getElementById("detailTitle").textContent = TYPE_LABEL[h.type];
+    const r = h.result;
+    let body = `
+      <div class="budget-summary">
+        <div class="item"><strong>${PS.fmtINR(r.total_budget)}</strong><span>Total Budget</span></div>
+        <div class="item"><strong>${PS.fmtINR(r.spent)}</strong><span>Allocated</span></div>
+        <div class="item"><strong>${PS.fmtINR(r.remaining_budget)}</strong><span>Remaining Budget</span></div>
+      </div>
+    `;
+    if (r.outfit_analysis) {
+      body += `
+        <div class="outfit-analysis">
+          <img src="${r.outfit_image}" alt="Outfit">
+          <div>
+            <h5 style="margin-bottom:6px;">AI Outfit Analysis</h5>
+            <div class="tags">
+              <span class="tag-pill">Colors: ${r.outfit_analysis.colors.join(", ")}</span>
+              <span class="tag-pill">Style: ${r.outfit_analysis.style}</span>
+              <span class="tag-pill">Formality: ${r.outfit_analysis.formality}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    r.budget_breakdown.forEach(cat => {
+      body += `
+        <div class="category-block">
+          <div class="category-head" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('hidden')">
+            <div class="left"><div class="tag">${Icon(cat.icon, "ic")}</div><h4>${cat.label}</h4></div>
+            <div class="pct">Allocation: ${PS.fmtINR(cat.allocation)}<small>${PS.fmtINR(cat.total_cost)} used · ${cat.percentage_of_budget}%</small>${Icon("chevronDown","chev")}</div>
+          </div>
+          <div class="category-items">
+            ${cat.items.map(it => `
+              <div class="item-row">
+                <div class="info">
+                  <h5>${it.name}</h5>
+                  <p>${it.description}</p>
+                  <div class="links">${it.shopping_links.map(l => `<a class="link-chip" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join("")}</div>
+                </div>
+                <div class="price"><strong>${PS.fmtINR(it.estimated_price)}</strong><span>est. price</span></div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    });
+    body += `<div class="suggestion-banner">${Icon("sparkle")} <div>${r.additional_suggestions.join(" ")}</div></div>`;
+    document.getElementById("detailBody").innerHTML = body;
+    document.getElementById("detailCard").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function reuseItem(id) {
+    const h = history.find(x => String(x.id) === String(id));
+    if (!h) return;
+    PS.stashReuse(h);
+    window.location.href = PLANNER_PAGE[h.type];
+  }
+
+  async function removeItem(id) {
+    try {
+      await PS.deleteHistory(id);
+      history = await PS.getHistory();
+      render();
+      document.getElementById("detailCard").classList.add("hidden");
+      PS.toast("Plan deleted.", "success");
+    } catch (error) { PS.toast(error.message, "error"); }
+  }
+
+  document.getElementById("closeDetail").addEventListener("click", () => document.getElementById("detailCard").classList.add("hidden"));
+  document.getElementById("clearAllBtn").addEventListener("click", async () => {
+    if (!history.length) { PS.toast("Nothing to clear."); return; }
+    if (confirm("Clear all saved plans? This cannot be undone.")) {
+      try {
+        await PS.clearAllHistory();
+        history = await PS.getHistory();
+        render();
+        document.getElementById("detailCard").classList.add("hidden");
+        PS.toast("All plans cleared.", "success");
+      } catch (error) { PS.toast(error.message, "error"); }
+    }
+  });
+  filterSel.addEventListener("change", render);
+
+  window.viewDetail = viewDetail;
+  window.removeItem = removeItem;
+  window.reuseItem = reuseItem;
+  (async () => {
+    try { history = await PS.getHistory(); }
+    catch (error) { PS.toast(error.message, "error"); }
+    render();
+  })();
+</script>
+</body>
+</html>

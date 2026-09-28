@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Party Budget Planner — Smartpocket AI</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="shortcut icon" href="assets/favicon/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand on-dark"><img src="assets/logo-icon.png" alt="Smartpocket AI logo"><span class="wordmark">Smartpocket<span class="ai">&nbsp;AI</span></span></div>
+    <a class="side-link" href="dashboard.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 13h8V3H3v10Zm10 8h8V11h-8v10ZM3 21h8v-6H3v6ZM13 3v6h8V3h-8Z"/></svg> Dashboard</a>
+    <a class="side-link" href="home-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 15h20v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3Z"/><path d="M6 15V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v7"/></svg> Home Planner</a>
+    <a class="side-link active" href="party-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-2.5 6.5-4 8l-1 5-1-5c-1.5-1.5-4-4.5-4-8a5 5 0 0 1 5-5Z"/><path d="M12 15v1"/></svg> Party Planner</a>
+    <a class="side-link" href="jewelry-planner.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg> Jewelry Planner</a>
+    <div class="side-divider"></div>
+    <a class="side-link" href="history.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 3"/></svg> History</a>
+    <a class="side-link" href="#" id="logoutLink"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg> Logout</a>
+    <div class="side-footer">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-2.5 6.5-4 8l-1 5-1-5c-1.5-1.5-4-4.5-4-8a5 5 0 0 1 5-5Z"/><path d="M12 15v1"/></svg>
+      <span>Tip: Book venue &amp; catering early — costs rise closer to popular event dates.</span>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <div class="topbar">
+      <div><h1>Party Budget Planner</h1><div class="sub">Plan your perfect event with budget allocations for venue, catering, decorations, and entertainment</div></div>
+      <button class="hamburger" id="hamburger"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+
+    <div class="page-pad">
+      <div class="section-card">
+        <div class="head"><h2>Event Details</h2></div>
+        <form id="partyForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="budget">Total Budget (₹)</label>
+              <input type="number" id="budget" min="500" placeholder="e.g. 80000" required>
+            </div>
+            <div class="field">
+              <label for="guests">Number of Guests</label>
+              <input type="number" id="guests" min="1" placeholder="e.g. 60" required>
+            </div>
+            <div class="field">
+              <label for="eventType">Event Type</label>
+              <select id="eventType">
+                <option value="Birthday">Birthday</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Housewarming">Housewarming</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="venueType">Venue Preference</label>
+              <select id="venueType">
+                <option value="Indoor">Indoor Banquet Hall</option>
+                <option value="Outdoor">Outdoor / Rooftop</option>
+                <option value="Home">Home / Community Hall</option>
+              </select>
+            </div>
+          </div>
+
+          <label style="font-weight:700;font-size:0.88rem;display:block;margin:20px 0 12px;">What do you need help with?</label>
+          <div class="room-grid">
+            <div class="room-item"><label><input type="checkbox" id="needsCatering" checked> Catering (food &amp; beverages)</label></div>
+            <div class="room-item"><label><input type="checkbox" id="needsDecoration" checked> Decoration</label></div>
+            <div class="room-item"><label><input type="checkbox" id="needsEntertainment" checked> Entertainment</label></div>
+            <div class="room-item"><label><input type="checkbox" id="needsPhotography"> Photography &amp; Videography</label></div>
+            <div class="room-item"><label><input type="checkbox" id="needsGifts"> Return Gifts</label></div>
+          </div>
+
+          <div class="field full" style="margin-top:18px;">
+            <label for="additional">Additional Requirements (optional)</label>
+            <textarea id="additional" rows="3" placeholder="e.g. Vegetarian only catering, need kid-friendly games, evening event..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top:8px;">Generate Recommendations</button>
+        </form>
+      </div>
+
+      <div class="results-wrap hidden" id="results"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/recommend.js"></script>
+<script>
+  PS.requireAuth();
+  PS.markActiveNav();
+  PS.initSidebarToggle();
+  document.getElementById("logoutLink").addEventListener("click", (e) => { e.preventDefault(); PS.logout(); });
+
+  (function prefillFromReuse() {
+    const reuse = PS.popReuse();
+    if (!reuse || reuse.type !== "party") return;
+    const i = reuse.input;
+    document.getElementById("budget").value = i.totalBudget;
+    document.getElementById("guests").value = i.guests;
+    document.getElementById("eventType").value = i.eventType;
+    document.getElementById("venueType").value = i.venueType;
+    document.getElementById("needsCatering").checked = !!i.needsCatering;
+    document.getElementById("needsDecoration").checked = !!i.needsDecoration;
+    document.getElementById("needsEntertainment").checked = !!i.needsEntertainment;
+    document.getElementById("needsPhotography").checked = !!i.needsPhotography;
+    document.getElementById("needsGifts").checked = !!i.needsGifts;
+    document.getElementById("additional").value = i.additional || "";
+    PS.toast("Previous plan loaded — adjust and regenerate anytime.");
+  })();
+
+  document.getElementById("partyForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const budget = parseFloat(document.getElementById("budget").value);
+    const guests = parseInt(document.getElementById("guests").value);
+    if (!budget || budget < 500) { PS.toast("Please enter a valid budget (minimum ₹500).", "error"); return; }
+    if (!guests || guests < 1) { PS.toast("Please enter a valid guest count.", "error"); return; }
+
+    const input = {
+      totalBudget: budget,
+      guests,
+      eventType: document.getElementById("eventType").value,
+      venueType: document.getElementById("venueType").value,
+      needsCatering: document.getElementById("needsCatering").checked,
+      needsDecoration: document.getElementById("needsDecoration").checked,
+      needsEntertainment: document.getElementById("needsEntertainment").checked,
+      needsPhotography: document.getElementById("needsPhotography").checked,
+      needsGifts: document.getElementById("needsGifts").checked,
+      additional: document.getElementById("additional").value.trim()
+    };
+
+    const btn = e.target.querySelector('[type="submit"]');
+    const btnText = btn ? btn.innerHTML : "";
+    if (btn) { btn.disabled = true; btn.textContent = "Generating…"; }
+    let result;
+    try {
+      result = await PSRecommend.generatePartyRecommendations(input);
+    } catch (error) {
+      PS.toast(error.message, "error");
+      if (btn) { btn.disabled = false; btn.innerHTML = btnText; }
+      return;
+    }
+    renderResults(result);
+    try {
+      await PS.saveHistory({ type: "party", title: `${input.eventType} Party Plan · ₹${budget.toLocaleString("en-IN")}`, input, result });
+      PS.toast("Recommendations generated and saved to your history!", "success");
+    } catch (error) {
+      PS.toast("Plan generated, but saving to history failed: " + error.message, "error");
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = btnText; }
+    }
+  });
+
+  function renderResults(result) {
+    const wrap = document.getElementById("results");
+    wrap.classList.remove("hidden");
+    const pct = Math.min(100, Math.round((result.spent / result.total_budget) * 100));
+
+    let html = `
+      <div class="section-card">
+        <div class="head"><h2>Your Personalized Party Plan</h2></div>
+        <div class="budget-summary">
+          <div class="item"><strong>${PS.fmtINR(result.total_budget)}</strong><span>Total Budget</span></div>
+          <div class="item"><strong>${result.guests}</strong><span>Guests</span></div>
+          <div class="item"><strong>${PS.fmtINR(result.spent)}</strong><span>Allocated</span></div>
+          <div class="item"><strong>${PS.fmtINR(result.remaining_budget)}</strong><span>Remaining Budget</span></div>
+          <div class="item" style="min-width:180px;"><span>Budget Used</span><div class="progress-bar"><span style="width:${pct}%"></span></div></div>
+        </div>
+    `;
+
+    result.budget_breakdown.forEach(cat => {
+      html += `
+        <div class="category-block">
+          <div class="category-head" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('hidden')">
+            <div class="left"><div class="tag">${Icon(cat.icon, "ic")}</div><h4>${cat.label}</h4></div>
+            <div class="pct">Allocation: ${PS.fmtINR(cat.allocation)}<small>${PS.fmtINR(cat.total_cost)} used · ${cat.percentage_of_budget}%</small>${Icon("chevronDown","chev")}</div>
+          </div>
+          <div class="category-items">
+            ${cat.items.map(it => `
+              <div class="item-row">
+                <div class="info">
+                  <h5>${it.name}</h5>
+                  <p>${it.description}${it.quantity > 1 ? ` · for ${it.quantity} guests` : ""}</p>
+                  <div class="links">${it.shopping_links.map(l => `<a class="link-chip" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join("")}</div>
+                </div>
+                <div class="price"><strong>${PS.fmtINR(it.estimated_price)}</strong><span>est. cost</span></div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    });
+
+    html += `
+        <div class="section-card" style="margin-top:8px;box-shadow:none;border:1px solid var(--border);">
+          <div class="head"><h2>Recommended Venues</h2></div>
+          ${result.venue_suggestions.map(v => `
+            <div class="item-row">
+              <div class="info">
+                <h5>${v.name}</h5>
+                <p>${v.type} · Capacity ~${v.capacity} guests</p>
+                <div class="links">${v.shopping_links.map(l => `<a class="link-chip" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join("")}</div>
+              </div>
+              <div class="price"><strong>${PS.fmtINR(v.estimated_cost)}</strong><span>est. venue cost</span></div>
+            </div>
+          `).join("")}
+        </div>
+        <div class="suggestion-banner">${Icon("sparkle")} <div>${result.additional_suggestions.join(" ")}</div></div>
+      </div>
+    `;
+    wrap.innerHTML = html;
+    wrap.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+</script>
+</body>
+</html>
